@@ -21,11 +21,13 @@ class ValidateInputTest {
     public void whenMultipleValidInput() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[]{"1", "1"}
+                new String[]{"1", "5"}
         );
         ValidateInput input = new ValidateInput(out, in);
         int selected = input.askInt("Enter menu:");
+        int nextSelected = input.askInt("Enter menu:");
         assertThat(selected).isEqualTo(1);
+        assertThat(nextSelected).isEqualTo(5);
     }
 
     @Test
